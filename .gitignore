@@ -1,0 +1,167 @@
+# ===== Python =====
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# ===== Virtual Environment =====
+venv/
+ENV/
+env/
+.venv/
+.ENV/
+
+# ===== IDE =====
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.project
+.pydevproject
+.settings/
+*.sublime-project
+*.sublime-workspace
+
+# ===== Jupyter Notebooks =====
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# ===== Testing =====
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.nox/
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+
+# ===== Type Checking =====
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# ===== Distribution =====
+*.manifest
+*.spec
+
+# ===== Logs =====
+*.log
+logs/
+pip-log.txt
+pip-delete-this-directory.txt
+
+# ===== Database =====
+data/*.db
+data/*.sqlite
+data/*.sqlite3
+*.db
+*.sqlite
+*.sqlite3
+
+# ===== Environment Variables =====
+.env
+.env.local
+.env.*.local
+*.env
+
+# ===== API Keys / Secrets =====
+secrets/
+*.pem
+*.key
+credentials.json
+token.json
+
+# ===== Streamlit =====
+.streamlit/secrets.toml
+
+# ===== macOS =====
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# ===== Windows =====
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+*.lnk
+
+# ===== Linux =====
+*~
+
+# ===== Temporary Files =====
+tmp/
+temp/
+*.tmp
+*.temp
+*.bak
+*.backup
+
+# ===== Model Files =====
+models/*.h5
+models/*.pkl
+models/*.joblib
+models/*.pt
+models/*.pth
+*.h5
+*.pkl
+*.joblib
+
+# ===== Data Files =====
+*.csv
+*.xlsx
+*.xls
+!data/example_*.csv
+
+# ===== Cache =====
+.cache/
+*.cache
+
+# ===== Profiling =====
+*.prof
+profile_stats/
+
+# ===== Documentation Build =====
+docs/_build/
+site/
+
+# ===== Project Specific =====
+# Lokale Konfiguration
+config.local.py
+settings.local.py
+
+# Analyse-Ergebnisse (werden in DB gespeichert)
+results/
+exports/
+
+# Backup der Datenbank
+*.db.bak
+*.db.backup
+
+# Projekt-interne Aufgaben
+AUFGABEN.txt
