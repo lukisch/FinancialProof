@@ -165,3 +165,6 @@ exports/
 
 # Projekt-interne Aufgaben
 AUFGABEN.txt
+
+# GitHub Workflow (manuell hinzufuegen - OAuth Token hat keinen workflow scope)
+.github/workflows/
