@@ -193,7 +193,7 @@ Beiträge sind willkommen! Siehe [CONTRIBUTING.md](CONTRIBUTING.md) für Details
 
 ## Lizenz
 
-Dieses Projekt ist unter der MIT-Lizenz lizenziert - siehe [LICENSE](LICENSE) für Details.
+GPL v3 - Siehe [LICENSE](LICENSE)
 
 ## Haftungsausschluss
 
