@@ -163,8 +163,18 @@ exports/
 *.db.bak
 *.db.backup
 
+# Internal planning files
+PLAN.txt
+
+# Private / Archive
+_archive/
+_private/
+
 # Projekt-interne Aufgaben
 AUFGABEN.txt
+
+# Claude Code local settings
+.claude/
 
 # GitHub Workflow (manuell hinzufuegen - OAuth Token hat keinen workflow scope)
 .github/workflows/
