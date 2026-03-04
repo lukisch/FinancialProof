@@ -3,6 +3,7 @@ FinancialProof - Hauptanwendung
 Browserbasierte Finanz-Analyse Web-App
 """
 import streamlit as st
+import pandas as pd
 import sys
 from pathlib import Path
 
@@ -133,6 +134,9 @@ def _render_header(symbol: str, info: dict, data):
     # Aktuelle Preisdaten
     current_price = data['Close'].iloc[-1]
     prev_price = data['Close'].iloc[-2] if len(data) > 1 else current_price
+    if pd.isna(current_price) or pd.isna(prev_price):
+        current_price = current_price if not pd.isna(current_price) else 0
+        prev_price = prev_price if not pd.isna(prev_price) else current_price
     change = current_price - prev_price
     change_pct = (change / prev_price) * 100 if prev_price > 0 else 0
 

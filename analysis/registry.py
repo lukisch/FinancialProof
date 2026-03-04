@@ -2,8 +2,11 @@
 FinancialProof - Analyse-Registry
 Zentrales Register für alle verfügbaren Analyse-Algorithmen
 """
+import logging
 from typing import Dict, List, Type, Optional, Any
 from analysis.base import BaseAnalyzer, AnalysisCategory
+
+logger = logging.getLogger(__name__)
 
 
 class AnalysisRegistry:
@@ -151,45 +154,22 @@ def _register_all_analyzers():
     Wird beim Laden des Moduls aufgerufen.
     """
     # Die Imports müssen hier sein um zirkuläre Imports zu vermeiden
-    try:
-        from analysis.statistical.arima import ARIMAAnalyzer
-    except ImportError:
-        pass
+    analyzers_to_import = [
+        ("analysis.statistical.arima", "ARIMAAnalyzer"),
+        ("analysis.statistical.monte_carlo", "MonteCarloAnalyzer"),
+        ("analysis.statistical.mean_reversion", "MeanReversionAnalyzer"),
+        ("analysis.correlation.cointegration", "CorrelationAnalyzer"),
+        ("analysis.ml.random_forest", "RandomForestAnalyzer"),
+        ("analysis.ml.neural_net", "NeuralNetAnalyzer"),
+        ("analysis.nlp.sentiment", "SentimentAnalyzer"),
+        ("analysis.nlp.research_agent", "ResearchAgent"),
+    ]
 
-    try:
-        from analysis.statistical.monte_carlo import MonteCarloAnalyzer
-    except ImportError:
-        pass
-
-    try:
-        from analysis.statistical.mean_reversion import MeanReversionAnalyzer
-    except ImportError:
-        pass
-
-    try:
-        from analysis.correlation.cointegration import CorrelationAnalyzer
-    except ImportError:
-        pass
-
-    try:
-        from analysis.ml.random_forest import RandomForestAnalyzer
-    except ImportError:
-        pass
-
-    try:
-        from analysis.ml.neural_net import NeuralNetAnalyzer
-    except ImportError:
-        pass
-
-    try:
-        from analysis.nlp.sentiment import SentimentAnalyzer
-    except ImportError:
-        pass
-
-    try:
-        from analysis.nlp.research_agent import ResearchAgent
-    except ImportError:
-        pass
+    for module_path, class_name in analyzers_to_import:
+        try:
+            __import__(module_path, fromlist=[class_name])
+        except ImportError as e:
+            logger.debug(f"Analyzer {class_name} nicht verfuegbar: {e}")
 
 
 # Registrierung wird verzögert, damit die Analyzer-Module Zeit haben zu laden

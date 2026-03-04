@@ -177,6 +177,9 @@ def _render_settings():
                 import os
                 db_path = config.DB_PATH
                 if os.path.exists(db_path):
-                    os.remove(db_path)
-                    st.success("Datenbank wurde zurückgesetzt")
-                    st.rerun()
+                    try:
+                        os.remove(db_path)
+                        st.success("Datenbank wurde zurückgesetzt")
+                        st.rerun()
+                    except PermissionError:
+                        st.error("Datenbank ist gesperrt (OneDrive-Sync oder anderer Prozess). Bitte später erneut versuchen.")

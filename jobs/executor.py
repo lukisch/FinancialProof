@@ -98,8 +98,20 @@ class JobExecutor:
     def execute_job_sync(self, job_id: int) -> bool:
         """
         Synchrone Version von execute_job für Streamlit.
+        Behandelt den Fall, dass bereits ein Event Loop laeuft.
         """
-        return asyncio.run(self.execute_job(job_id))
+        try:
+            loop = asyncio.get_running_loop()
+        except RuntimeError:
+            loop = None
+
+        if loop and loop.is_running():
+            import concurrent.futures
+            with concurrent.futures.ThreadPoolExecutor() as pool:
+                future = pool.submit(asyncio.run, self.execute_job(job_id))
+                return future.result()
+        else:
+            return asyncio.run(self.execute_job(job_id))
 
     async def execute_all_pending(self, max_jobs: int = 10) -> Dict[str, int]:
         """

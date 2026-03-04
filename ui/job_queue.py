@@ -74,7 +74,17 @@ def _render_job_statistics():
             if st.button(f"▶️ Alle {pending_count} ausführen", use_container_width=True):
                 with st.spinner(f"Führe {pending_count} Analysen aus..."):
                     import asyncio
-                    result = asyncio.run(executor.execute_all_pending(max_jobs=pending_count))
+                    import concurrent.futures
+                    try:
+                        loop = asyncio.get_running_loop()
+                    except RuntimeError:
+                        loop = None
+                    if loop and loop.is_running():
+                        with concurrent.futures.ThreadPoolExecutor() as pool:
+                            future = pool.submit(asyncio.run, executor.execute_all_pending(max_jobs=pending_count))
+                            result = future.result()
+                    else:
+                        result = asyncio.run(executor.execute_all_pending(max_jobs=pending_count))
                     st.success(
                         f"Fertig: {result['completed']} erfolgreich, "
                         f"{result['failed']} fehlgeschlagen"
@@ -175,7 +185,7 @@ def _format_datetime(dt) -> str:
     if isinstance(dt, str):
         try:
             dt = datetime.fromisoformat(dt)
-        except:
+        except (ValueError, TypeError):
             return dt
 
     if isinstance(dt, datetime):

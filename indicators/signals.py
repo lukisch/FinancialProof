@@ -88,7 +88,9 @@ class SignalGenerator:
         signals = self.generate_all_signals(df)
 
         # Nur die neuesten Signale (letzte 5 Tage)
-        recent_signals = [s for s in signals if s.date >= df.index[-5]]
+        lookback = min(5, len(df))
+        cutoff_date = df.index[-lookback] if lookback > 0 else df.index[0]
+        recent_signals = [s for s in signals if s.date >= cutoff_date]
 
         buy_count = sum(1 for s in recent_signals if s.signal_type == SignalType.BUY)
         sell_count = sum(1 for s in recent_signals if s.signal_type == SignalType.SELL)

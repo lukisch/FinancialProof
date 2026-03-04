@@ -55,6 +55,9 @@ def _render_price_header(df: pd.DataFrame, symbol: str, signals: dict):
 
     current_price = df['Close'].iloc[-1]
     prev_price = df['Close'].iloc[-2] if len(df) > 1 else current_price
+    if pd.isna(current_price) or pd.isna(prev_price):
+        current_price = current_price if not pd.isna(current_price) else 0
+        prev_price = prev_price if not pd.isna(prev_price) else current_price
     change = current_price - prev_price
     change_pct = (change / prev_price) * 100 if prev_price > 0 else 0
 
