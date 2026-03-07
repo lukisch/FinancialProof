@@ -1,53 +1,53 @@
 # FinancialProof
 
-Eine browserbasierte Finanz-Analyse Web-App mit KI-gestützten Tiefenanalysen.
+A browser-based financial analysis web app with AI-powered deep analyses.
 
 ## Features
 
-- **Technische Indikatoren**: SMA, EMA, RSI, Bollinger Bands, MACD, Stochastic, ATR
-- **Automatische Signale**: Kauf-/Verkaufssignale basierend auf technischen Mustern
-- **KI-Analysen**:
-  - ARIMA Zeitreihenprognose
-  - Monte Carlo Simulation (VaR)
-  - Mean Reversion Analyse
-  - Random Forest Trendvorhersage
-  - Neural Network Pattern Recognition
-  - Sentiment-Analyse (News)
+- **Technical Indicators**: SMA, EMA, RSI, Bollinger Bands, MACD, Stochastic, ATR
+- **Automatic Signals**: Buy/sell signals based on technical patterns
+- **AI Analyses**:
+  - ARIMA time series forecasting
+  - Monte Carlo simulation (VaR)
+  - Mean Reversion analysis
+  - Random Forest trend prediction
+  - Neural Network pattern recognition
+  - Sentiment analysis (News)
   - Web Research Agent
-- **Job-Queue System**: Asynchrone Analyse-Aufträge mit SQLite-Persistenz
-- **Watchlist**: Portfolio-Übersicht mit mehreren Assets
-- **Deutsche Benutzeroberfläche**
+- **Job Queue System**: Asynchronous analysis tasks with SQLite persistence
+- **Watchlist**: Portfolio overview with multiple assets
+- **German User Interface**
 
 ## Screenshots
 
 ```
-┌─────────────────────────────────────────────────────────────┐
-│  📊 Chart    │  🧠 Tiefen-Analyse    │  📋 Aufträge         │
-├─────────────────────────────────────────────────────────────┤
-│                                                             │
-│  [Candlestick Chart mit Indikatoren]                       │
-│                                                             │
-│  ────────────────────────────────────────────────────────  │
-│  RSI: 45.2  │  Signal: NEUTRAL  │  Trend: Seitwärts        │
-└─────────────────────────────────────────────────────────────┘
+┌───────────────────────────────────────────────────────────────┐
+│  📊 Chart    │  🧠 Deep Analysis    │  📋 Tasks             │
+├───────────────────────────────────────────────────────────────┤
+│                                                               │
+│  [Candlestick Chart with Indicators]                          │
+│                                                               │
+│  ─────────────────────────────────────────────────────────  │
+│  RSI: 45.2  │  Signal: NEUTRAL  │  Trend: Sideways         │
+└───────────────────────────────────────────────────────────────┘
 ```
 
 ## Installation
 
-### Voraussetzungen
+### Prerequisites
 
 - Python 3.9+
 - pip
 
 ### Setup
 
-1. **Repository klonen**
+1. **Clone the repository**
    ```bash
    git clone https://github.com/username/FinancialProof.git
    cd FinancialProof
    ```
 
-2. **Virtuelle Umgebung erstellen** (empfohlen)
+2. **Create a virtual environment** (recommended)
    ```bash
    python -m venv venv
 
@@ -58,149 +58,153 @@ Eine browserbasierte Finanz-Analyse Web-App mit KI-gestützten Tiefenanalysen.
    source venv/bin/activate
    ```
 
-3. **Dependencies installieren**
+3. **Install dependencies**
    ```bash
    pip install -r requirements.txt
    ```
 
-4. **Umgebungsvariablen konfigurieren** (optional)
+4. **Configure environment variables** (optional)
    ```bash
    cp .env.example .env
-   # .env Datei bearbeiten und API-Keys eintragen
+   # Edit .env file and add API keys
    ```
 
-5. **App starten**
+5. **Launch the app**
    ```bash
    streamlit run app.py
    ```
 
-6. **Browser öffnen**
+6. **Open browser**
    ```
    http://localhost:8501
    ```
 
-## Projektstruktur
+## Project Structure
 
 ```
 FinancialProof/
-├── app.py                  # Hauptanwendung
-├── config.py               # Konfiguration
-├── requirements.txt        # Dependencies
+├── app.py                    # Main application
+├── config.py                 # Configuration
+├── requirements.txt          # Dependencies
 │
 ├── core/
-│   ├── database.py         # SQLite Datenbank
-│   └── data_provider.py    # yfinance Wrapper
+│   ├── database.py           # SQLite database
+│   └── data_provider.py      # yfinance wrapper
 │
 ├── indicators/
-│   ├── technical.py        # Technische Indikatoren
-│   └── signals.py          # Signal-Generierung
+│   ├── technical.py          # Technical indicators
+│   └── signals.py            # Signal generation
 │
 ├── analysis/
-│   ├── base.py             # Abstrakte Basisklasse
-│   ├── registry.py         # Analyse-Registry
-│   ├── statistical/        # ARIMA, Monte Carlo, Mean Reversion
-│   ├── ml/                 # Random Forest, Neural Network
-│   └── nlp/                # Sentiment, Research Agent
+│   ├── base.py               # Abstract base class
+│   ├── registry.py           # Analysis registry
+│   ├── statistical/          # ARIMA, Monte Carlo, Mean Reversion
+│   ├── ml/                   # Random Forest, Neural Network
+│   └── nlp/                  # Sentiment, Research Agent
 │
 ├── jobs/
-│   ├── manager.py          # Job-Verwaltung
-│   └── executor.py         # Job-Ausführung
+│   ├── manager.py            # Job management
+│   └── executor.py           # Job execution
 │
 ├── ui/
-│   ├── sidebar.py          # Sidebar-Komponente
-│   ├── chart_view.py       # Chart-Ansicht
-│   ├── analysis_view.py    # Analyse-Tab
-│   └── job_queue.py        # Job-Queue-Ansicht
+│   ├── sidebar.py            # Sidebar component
+│   ├── chart_view.py         # Chart view
+│   ├── analysis_view.py      # Analysis tab
+│   └── job_queue.py          # Job queue view
 │
 └── data/
-    └── financial.db        # SQLite Datenbank
+    └── financial.db          # SQLite database
 ```
 
-## Verwendung
+## Usage
 
-### Symbol eingeben
+### Enter a Symbol
 
-Gib ein Ticker-Symbol in der Sidebar ein:
-- Aktien: `AAPL`, `MSFT`, `GOOGL`
+Enter a ticker symbol in the sidebar:
+- Stocks: `AAPL`, `MSFT`, `GOOGL`
 - ETFs: `SPY`, `QQQ`, `VOO`
-- Krypto: `BTC-USD`, `ETH-USD`
-- Indizes: `^GSPC`, `^DJI`
+- Crypto: `BTC-USD`, `ETH-USD`
+- Indices: `^GSPC`, `^DJI`
 
-### Analyse starten
+### Start an Analysis
 
-1. Wähle einen Zeitraum (1M - 5J)
-2. Aktiviere gewünschte Indikatoren
-3. Wechsle zum Tab "Tiefen-Analyse"
-4. Wähle eine Analysemethode und starte den Auftrag
+1. Select a time period (1M - 5Y)
+2. Activate desired indicators
+3. Switch to the "Deep Analysis" tab
+4. Choose an analysis method and start the task
 
-### Ergebnisse ansehen
+### View Results
 
-- Tab "Aufträge" zeigt alle laufenden und abgeschlossenen Jobs
-- Klicke auf einen Job für Details und Empfehlungen
+- The "Tasks" tab shows all running and completed jobs
+- Click on a job for details and recommendations
 
-## Konfiguration
+## Configuration
 
-### Umgebungsvariablen
+### Environment Variables
 
-| Variable | Beschreibung | Standard |
-|----------|--------------|----------|
-| `OPENAI_API_KEY` | OpenAI API Key für Research Agent | - |
-| `TWITTER_BEARER_TOKEN` | Twitter API für Sentiment | - |
-| `YOUTUBE_API_KEY` | YouTube API für Video-Analyse | - |
+| Variable | Description | Default |
+|----------|-------------|---------|
+| `OPENAI_API_KEY` | OpenAI API key for Research Agent | - |
+| `TWITTER_BEARER_TOKEN` | Twitter API for Sentiment | - |
+| `YOUTUBE_API_KEY` | YouTube API for video analysis | - |
 
-### Einstellungen in `config.py`
+### Settings in `config.py`
 
 ```python
-DEFAULT_TICKER = "AAPL"      # Standard-Symbol
-CACHE_TTL_MARKET_DATA = 3600 # Cache-Dauer (Sekunden)
+DEFAULT_TICKER = "AAPL"       # Default symbol
+CACHE_TTL_MARKET_DATA = 3600  # Cache duration (seconds)
 ```
 
-## Analyse-Module
+## Analysis Modules
 
-| Modul | Kategorie | Beschreibung |
-|-------|-----------|--------------|
-| ARIMA | Statistik | Zeitreihen-Prognose |
-| Monte Carlo | Statistik | Value at Risk Simulation |
-| Mean Reversion | Statistik | Rückkehr-zum-Mittelwert Analyse |
-| Random Forest | ML | Trend-Klassifikation |
-| Neural Network | ML | Muster-Erkennung |
-| Sentiment | NLP | News-Stimmungsanalyse |
-| Research Agent | NLP | Web-Recherche |
+| Module | Category | Description |
+|--------|----------|-------------|
+| ARIMA | Statistics | Time series forecasting |
+| Monte Carlo | Statistics | Value at Risk simulation |
+| Mean Reversion | Statistics | Return-to-mean analysis |
+| Random Forest | ML | Trend classification |
+| Neural Network | ML | Pattern recognition |
+| Sentiment | NLP | News sentiment analysis |
+| Research Agent | NLP | Web research |
 
-## Technologie-Stack
+## Technology Stack
 
 - **Frontend**: Streamlit
 - **Charts**: Plotly
-- **Daten**: yfinance, pandas, numpy
+- **Data**: yfinance, pandas, numpy
 - **ML**: scikit-learn, TensorFlow (optional)
 - **NLP**: transformers, TextBlob
-- **Datenbank**: SQLite
+- **Database**: SQLite
 
 ## Roadmap
 
-Siehe [ROADMAP.md](ROADMAP.md) für geplante Features:
+See [ROADMAP.md](ROADMAP.md) for planned features:
 
-- [ ] Phase 7: Trading-Anbindung (Alpaca, CCXT)
+- [ ] Phase 7: Trading integration (Alpaca, CCXT)
 - [ ] Phase 8: Strategy Engine
-- [ ] Phase 9: Automatisiertes Trading
-- [ ] Phase 10: Erweiterte Analysen
-- [ ] Phase 11: Performance & Skalierung
+- [ ] Phase 9: Automated Trading
+- [ ] Phase 10: Extended Analyses
+- [ ] Phase 11: Performance & Scaling
 - [ ] Phase 12: Backtesting & Reporting
 
-## Mitwirken
+## Contributing
 
-Beiträge sind willkommen! Siehe [CONTRIBUTING.md](CONTRIBUTING.md) für Details.
+Contributions are welcome! See [CONTRIBUTING.md](CONTRIBUTING.md) for details.
 
-## Lizenz
+## License
 
-GPL v3 - Siehe [LICENSE](LICENSE)
+GPL v3 - See [LICENSE](LICENSE)
 
-## Haftungsausschluss
+## Disclaimer
 
-**Dieses Tool dient nur zu Informationszwecken und stellt keine Anlageberatung dar.**
+**This tool is for informational purposes only and does not constitute investment advice.**
 
-Die bereitgestellten Analysen und Signale sind keine Empfehlung zum Kauf oder Verkauf von Wertpapieren. Investitionen in Finanzmärkte sind mit Risiken verbunden. Vergangene Performance ist kein Indikator für zukünftige Ergebnisse.
+The analyses and signals provided are not a recommendation to buy or sell securities. Investments in financial markets involve risks. Past performance is not an indicator of future results.
 
 ## Changelog
 
-Siehe [CHANGELOG.md](CHANGELOG.md) für alle Änderungen.
+See [CHANGELOG.md](CHANGELOG.md) for all changes.
+
+---
+
+Deutsche Version: [README.de.md](README.de.md)
