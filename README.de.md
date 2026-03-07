@@ -1,6 +1,6 @@
 # FinancialProof
 
-Eine browserbasierte Finanz-Analyse Web-App mit KI-gestützten Tiefenanalysen.
+Eine browserbasierte Finanz-Analyse Web-App mit KI-gestuetzten Tiefenanalysen.
 
 ## Features
 
@@ -14,22 +14,22 @@ Eine browserbasierte Finanz-Analyse Web-App mit KI-gestützten Tiefenanalysen.
   - Neural Network Pattern Recognition
   - Sentiment-Analyse (News)
   - Web Research Agent
-- **Job-Queue System**: Asynchrone Analyse-Aufträge mit SQLite-Persistenz
-- **Watchlist**: Portfolio-Übersicht mit mehreren Assets
-- **Deutsche Benutzeroberfläche**
+- **Job-Queue System**: Asynchrone Analyse-Auftraege mit SQLite-Persistenz
+- **Watchlist**: Portfolio-Uebersicht mit mehreren Assets
+- **Deutsche Benutzeroberflaeche**
 
 ## Screenshots
 
 ```
-┌───────────────────────────────────────────────────────────────┐
-│  📊 Chart    │  🧠 Tiefen-Analyse    │  📋 Aufträge          │
-├───────────────────────────────────────────────────────────────┤
-│                                                              │
-│  [Candlestick Chart mit Indikatoren]                        │
-│                                                            │
-│  ─────────────────────────────────────────────────────────  │
-│  RSI: 45.2  │  Signal: NEUTRAL  │  Trend: Seitwärts        │
-└───────────────────────────────────────────────────────────────┘
+┌──────────────────────────────────────────────────────────────────┐
+│  📊 Chart    │  🧠 Tiefen-Analyse    │  📋 Auftraege            │
+├──────────────────────────────────────────────────────────────────┤
+│                                                                  │
+│  [Candlestick Chart mit Indikatoren]                             │
+│                                                                  │
+│  ────────────────────────────────────────────────────────────  │
+│  RSI: 45.2  │  Signal: NEUTRAL  │  Trend: Seitwaerts           │
+└──────────────────────────────────────────────────────────────────┘
 ```
 
 ## Installation
@@ -43,7 +43,7 @@ Eine browserbasierte Finanz-Analyse Web-App mit KI-gestützten Tiefenanalysen.
 
 1. **Repository klonen**
    ```bash
-   git clone https://github.com/username/FinancialProof.git
+   git clone https://github.com/lukisch/FinancialProof.git
    cd FinancialProof
    ```
 
@@ -74,7 +74,7 @@ Eine browserbasierte Finanz-Analyse Web-App mit KI-gestützten Tiefenanalysen.
    streamlit run app.py
    ```
 
-6. **Browser öffnen**
+6. **Browser oeffnen**
    ```
    http://localhost:8501
    ```
@@ -83,37 +83,37 @@ Eine browserbasierte Finanz-Analyse Web-App mit KI-gestützten Tiefenanalysen.
 
 ```
 FinancialProof/
-├── app.py                    # Hauptanwendung
+├── app.py                   # Hauptanwendung
 ├── config.py                # Konfiguration
-├── requirements.txt        # Dependencies
+├── requirements.txt         # Dependencies
 │
 ├── core/
-│   ├── database.py           # SQLite Datenbank
-│   └── data_provider.py    # yfinance Wrapper
+│   ├── database.py          # SQLite Datenbank
+│   └── data_provider.py     # yfinance Wrapper
 │
 ├── indicators/
-│   ├── technical.py        # Technische Indikatoren
+│   ├── technical.py         # Technische Indikatoren
 │   └── signals.py           # Signal-Generierung
 │
 ├── analysis/
-│   ├── base.py             # Abstrakte Basisklasse
-│   ├── registry.py         # Analyse-Registry
-│   ├── statistical/        # ARIMA, Monte Carlo, Mean Reversion
+│   ├── base.py              # Abstrakte Basisklasse
+│   ├── registry.py          # Analyse-Registry
+│   ├── statistical/         # ARIMA, Monte Carlo, Mean Reversion
 │   ├── ml/                  # Random Forest, Neural Network
 │   └── nlp/                 # Sentiment, Research Agent
 │
 ├── jobs/
-│   ├── manager.py          # Job-Verwaltung
-│   └── executor.py         # Job-Ausführung
+│   ├── manager.py           # Job-Verwaltung
+│   └── executor.py          # Job-Ausfuehrung
 │
 ├── ui/
 │   ├── sidebar.py           # Sidebar-Komponente
-│   ├── chart_view.py       # Chart-Ansicht
-│   ├── analysis_view.py    # Analyse-Tab
-│   └── job_queue.py        # Job-Queue-Ansicht
+│   ├── chart_view.py        # Chart-Ansicht
+│   ├── analysis_view.py     # Analyse-Tab
+│   └── job_queue.py         # Job-Queue-Ansicht
 │
 └── data/
-    └── financial.db        # SQLite Datenbank
+    └── financial.db         # SQLite Datenbank
 ```
 
 ## Verwendung
@@ -128,25 +128,25 @@ Gib ein Ticker-Symbol in der Sidebar ein:
 
 ### Analyse starten
 
-1. Wähle einen Zeitraum (1M - 5J)
-2. Aktiviere gewünschte Indikatoren
+1. Waehle einen Zeitraum (1M - 5J)
+2. Aktiviere gewuenschte Indikatoren
 3. Wechsle zum Tab "Tiefen-Analyse"
-4. Wähle eine Analysemethode und starte den Auftrag
+4. Waehle eine Analysemethode und starte den Auftrag
 
 ### Ergebnisse ansehen
 
-- Tab "Aufträge" zeigt alle laufenden und abgeschlossenen Jobs
-- Klicke auf einen Job für Details und Empfehlungen
+- Tab "Auftraege" zeigt alle laufenden und abgeschlossenen Jobs
+- Klicke auf einen Job fuer Details und Empfehlungen
 
 ## Konfiguration
 
 ### Umgebungsvariablen
 
 | Variable | Beschreibung | Standard |
-|----------|--------------|----------|
-| `OPENAI_API_KEY` | OpenAI API Key für Research Agent | - |
-| `TWITTER_BEARER_TOKEN` | Twitter API für Sentiment | - |
-| `YOUTUBE_API_KEY` | YouTube API für Video-Analyse | - |
+|----------|-------------|---------|
+| `OPENAI_API_KEY` | OpenAI API Key fuer Research Agent | - |
+| `TWITTER_BEARER_TOKEN` | Twitter API fuer Sentiment | - |
+| `YOUTUBE_API_KEY` | YouTube API fuer Video-Analyse | - |
 
 ### Einstellungen in `config.py`
 
@@ -158,12 +158,12 @@ CACHE_TTL_MARKET_DATA = 3600 # Cache-Dauer (Sekunden)
 ## Analyse-Module
 
 | Modul | Kategorie | Beschreibung |
-|-------|-----------|--------------|
+|-------|-----------|-------------|
 | ARIMA | Statistik | Zeitreihen-Prognose |
 | Monte Carlo | Statistik | Value at Risk Simulation |
-| Mean Reversion | Statistik | Rückkehr-zum-Mittelwert Analyse |
+| Mean Reversion | Statistik | Rueckkehr-zum-Mittelwert Analyse |
 | Random Forest | ML | Trend-Klassifikation |
-| Neural Network| ML | Muster-Erkennung |
+| Neural Network | ML | Muster-Erkennung |
 | Sentiment | NLP | News-Stimmungsanalyse |
 | Research Agent | NLP | Web-Recherche |
 
@@ -178,7 +178,7 @@ CACHE_TTL_MARKET_DATA = 3600 # Cache-Dauer (Sekunden)
 
 ## Roadmap
 
-Siehe [ROADMAP.md](ROADMAP.md) für geplante Features:
+Siehe [ROADMAP.md](ROADMAP.md) fuer geplante Features:
 
 - [ ] Phase 7: Trading-Anbindung (Alpaca, CCXT)
 - [ ] Phase 8: Strategy Engine
@@ -189,7 +189,7 @@ Siehe [ROADMAP.md](ROADMAP.md) für geplante Features:
 
 ## Mitwirken
 
-Beiträge sind willkommen! Siehe [CONTRIBUTING.md](CONTRIBUTING.md) für Details.
+Beitraege sind willkommen! Siehe [CONTRIBUTING.md](CONTRIBUTING.md) fuer Details.
 
 ## Lizenz
 
@@ -199,12 +199,12 @@ GPL v3 - Siehe [LICENSE](LICENSE)
 
 **Dieses Tool dient nur zu Informationszwecken und stellt keine Anlageberatung dar.**
 
-Die bereitgestellten Analysen und Signale sind keine Empfehlung zum Kauf oder Verkauf von Wertpapieren. Investitionen in Finanzmärkte sind mit Risiken verbunden. Vergangene Performance ist kein Indikator für zukünftige Ergebnisse.
+Die bereitgestellten Analysen und Signale sind keine Empfehlung zum Kauf oder Verkauf von Wertpapieren. Investitionen in Finanzmaerkte sind mit Risiken verbunden. Vergangene Performance ist kein Indikator fuer zukuenftige Ergebnisse.
 
 ## Changelog
 
-Siehe [CHANGELOG.md](CHANGELOG.md) für alle Änderungen.
+Siehe [CHANGELOG.md](CHANGELOG.md) fuer alle Aenderungen.
 
 ---
 
-English version: [README.md](README.md)
+🇬🇧 [English version](README.md)
